@@ -1,2 +1,2 @@
-# AppHomework-Angular
-this application is funcitional to order the tasks easily
+# AppTaks
+this application is funcitional to order the tasks easily - based on Angular
