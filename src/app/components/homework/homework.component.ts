@@ -11,37 +11,43 @@ export class HomeworkComponent implements OnInit
 
   listHomework : Homework[] = [];
   nameHomework = "";
+  number = 1;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  addHomework(): void
+  alertHomework(): void
   {
-
     //Validating if the name diferrent to empty
     if (this.nameHomework != "") 
-    { 
+    {
+      this.addHomework();
+      this.number = 1;
       
-      //Create  homework object
-      const homework: Homework = 
-      {
-        name: this.nameHomework,
-        status: false
-      }
-  
-      //Adding the homework object to array 
-      this.listHomework.push(homework);
-
-      //Reset form
-      
-      this.nameHomework = "";
-
     }else
     {
-      alert('It cannot be emty');
+      this.number = 0;
     }
+
+  }
+
+  addHomework(): void
+  {
+    //Create  homework object
+    const homework: Homework = 
+    {
+      name: this.nameHomework,
+      status: false
+    }
+
+    //Adding the homework object to array 
+    this.listHomework.push(homework);
+
+    //Reset form
+    
+    this.nameHomework = "";
   }
 
 
