@@ -4,20 +4,20 @@
             <input type="text" [(ngModel)]="nameHomework" (keyup.enter)="addHomework()" placeholder="Add homework" class="form-control form-control-lg">
         </div>
         <div class="col-lg-6 offset-lg-3 mt-3">
-            <div *ngIf="listHomework.length === 0">
+            <div *ngIf="listHomework.length === 0" class="card p-2">
                 <h6>No homework Founds</h6>
             </div>
+            <ul class="list-group">
+                <li *ngFor="let homework of listHomework; let i = index" class="list-group-item d-flex justify-content-between">
+                    <span class="cursor" (click)="updateHomework(i,homework)">
+                        <i [class.text-success]="homework.status" [ngClass]="homework.status ? 'fas fa-check-circle' : 'far fa-circle'"></i>
+                    </span>
+                    {{homework.name}}
+                    <span class="cursor text-danger" (click)="deleteHomework(index)" >
+                        <i class="fas fa-trash-alt"></i>
+                    </span>
+                </li>
+            </ul>
         </div>
-        <ul class="list-group">
-            <li *ngFor="let homework of listHomework; let i = index" class="list-group-item d-flex justify-content-between">
-                <span class="cursor" (click)="updateHomework(i,homework)">
-                    <i [class.text-success]="homework.status" [ngClass]="homework.status ? 'fas fa-check-circle' : 'far fa-circle'"></i>
-                </span>
-                {{homework.name}}
-                <span class="cursor text-danger" (click)="deleteHomework(index)" >
-                    <i class="fas fa-trash-alt"></i>
-                </span>
-            </li>
-        </ul>
     </div>
 </div>
