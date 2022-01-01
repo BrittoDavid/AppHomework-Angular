@@ -9,8 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class HomeworkComponent implements OnInit 
 {
 
-  listHomework : Homework[] = [];
-  nameHomework = "";
+  listTask : Homework[] = [];
+  nameTask = "";
   number = 1;
 
   constructor() { }
@@ -18,12 +18,12 @@ export class HomeworkComponent implements OnInit
   ngOnInit(): void {
   }
 
-  alertHomework(): void
+  alertTask(): void
   {
     //Validating if the name diferrent to empty
-    if (this.nameHomework != "") 
+    if (this.nameTask != "") 
     {
-      this.addHomework();
+      this.addTask();
       this.number = 1;
       
     }else
@@ -33,32 +33,32 @@ export class HomeworkComponent implements OnInit
 
   }
 
-  addHomework(): void
+  addTask(): void
   {
     //Create  homework object
     const homework: Homework = 
     {
-      name: this.nameHomework,
+      name: this.nameTask,
       status: false
     }
 
     //Adding the homework object to array 
-    this.listHomework.push(homework);
+    this.listTask.push(homework);
 
     //Reset form
     
-    this.nameHomework = "";
+    this.nameTask = "";
   }
 
 
-  deleteHomework(index:number): void
+  deleteTask(index:number): void
   {
-    this.listHomework.splice(index,1);
+    this.listTask.splice(index,1);
   }
 
-  updateHomework(index:number, homework: Homework): void
+  updateTask(index:number, homework: Homework): void
   {
-    this.listHomework[index].status = !homework.status;
+    this.listTask[index].status = !homework.status;
   }
 
 }
